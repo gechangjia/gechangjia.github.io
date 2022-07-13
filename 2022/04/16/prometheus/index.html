@@ -1,0 +1,156 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.png?v=2.6.2" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.png?v=2.6.2" type="image/png" sizes="32x32"><meta name="description" content="环境搭建       准备三台服务器： prometheus服务端 prometheus客户端 Grafana                     同步时间       三台服务器都要同步一下时间 1yum install ntpdate -y                        下载安装prometheus       下载地址：https:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="prometheus+grafana+alertmanager报警">
+<meta property="og:url" content="https://gechangjia.github.io/2022/04/16/prometheus/index.html">
+<meta property="og:site_name" content="谁是猛男">
+<meta property="og:description" content="环境搭建       准备三台服务器： prometheus服务端 prometheus客户端 Grafana                     同步时间       三台服务器都要同步一下时间 1yum install ntpdate -y                        下载安装prometheus       下载地址：https:">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gechangjia.github.io/2022/04/16/prometheus/1650849299406.png">
+<meta property="og:image" content="https://gechangjia.github.io/2022/04/16/prometheus/1650616079698.png">
+<meta property="og:image" content="https://gechangjia.github.io/2022/04/16/prometheus/1650616200899.png">
+<meta property="og:image" content="https://gechangjia.github.io/2022/04/16/prometheus/1650616353899.png">
+<meta property="og:image" content="https://gechangjia.github.io/2022/04/16/prometheus/1650616547405.png">
+<meta property="og:image" content="https://gechangjia.github.io/2022/04/16/prometheus/1650850067207.png">
+<meta property="article:published_time" content="2022-04-16T02:40:54.000Z">
+<meta property="article:modified_time" content="2022-07-01T03:26:00.749Z">
+<meta property="article:author" content="gechangjia">
+<meta property="article:tag" content="prometheus">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gechangjia.github.io/2022/04/16/prometheus/1650849299406.png"><title>prometheus+grafana+alertmanager报警 | 谁是猛男</title><link ref="canonical" href="https://gechangjia.github.io/2022/04/16/prometheus/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.6.2"><script src="/live2d-widget-master/autoload.js"></script><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  algolia: undefined,
+  assistSearch: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":true,"scrollDownIcon":true},
+  postWidget: {"endText":true},
+  nightMode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"default","highlight":"light","wordWrap":false},
+  reward: false,
+  fancybox: false,
+  zoomImage: {"gapAside":"20px"},
+  galleryWaterfall: undefined,
+  lazyload: false,
+  pjax: undefined,
+  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: undefined,
+  prompt: {"copyButton":"复制","copySuccess":"复制成功","copyError":"复制失败"},
+  sourcePath: {"js":"js","css":"css","images":"images"},
+};
+
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.1"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">首页</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">文章</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/tags/"><span class="header-nav-menu-item__icon"><i class="fas fa-tags"></i></span><span class="header-nav-menu-item__text">标签</span></a></div></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">谁是猛男</div><div class="header-banner-info__subtitle">不管遇到什么困难，都要燃烧你的心，勇敢的走下去</div></div><div class="header-banner-arrow"><div class="header-banner-arrow__icon"><i class="fas fa-angle-down"></i></div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">prometheus+grafana+alertmanager报警</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2022-04-15</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2022-06-30</span></span></div></header><div class="post-body">
+        <h4 id="环境搭建">
+          <a href="#环境搭建" class="heading-link"><i class="fas fa-link"></i></a><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h4>
+      <p>准备三台服务器：</p>
+<p>prometheus服务端</p>
+<p>prometheus客户端</p>
+<p>Grafana</p>
+
+        <h4 id="同步时间">
+          <a href="#同步时间" class="heading-link"><i class="fas fa-link"></i></a><a href="#同步时间" class="headerlink" title="同步时间"></a>同步时间</h4>
+      <p>三台服务器都要同步一下时间</p>
+<figure class="highlight shell"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install ntpdate -y</span><br></pre></td></tr></table></div></figure>
+
+
+
+
+        <h4 id="下载安装prometheus">
+          <a href="#下载安装prometheus" class="heading-link"><i class="fas fa-link"></i></a><a href="#下载安装prometheus" class="headerlink" title="下载安装prometheus"></a>下载安装prometheus</h4>
+      <p>下载地址：<span class="exturl"><a class="exturl__link" target="_blank" rel="noopener" href="https://prometheus.io/download/%EF%BC%8C%E6%89%BE%E5%88%B0%E7%AC%A6%E5%90%88%E8%87%AA%E5%B7%B1%E7%9A%84%E7%8E%AF%E5%A2%83%E7%9A%84%E5%AE%89%E8%A3%85%E5%8C%85%E4%B8%8B%E8%BD%BD%E5%8D%B3%E5%8F%AF%EF%BC%8C%E5%8D%9A%E4%B8%BB%E7%9A%84%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83%E6%98%AFcentos7%E3%80%82">https://prometheus.io/download/，找到符合自己的环境的安装包下载即可，博主的测试环境是centos7。</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p>上传服务器，解压，然后移动目录到统一路径下方便管理，当然可以不移动</p>
+<figure class="highlight shell"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf prometheus-2.34.0.linux-amd64.tar.gz</span><br><span class="line">mv prometheus-2.34.0.linux-amd64 /usr/local/prometheus</span><br></pre></td></tr></table></div></figure>
+
+<p>启动prometheus，浏览器访问如下图，默认端口为9090</p>
+<figure class="highlight shell"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./prometheus --config.file=&quot;/usr/local/prometheus/prometheus.yml&quot; &amp;</span><br></pre></td></tr></table></div></figure>
+
+<p><img src="/2022/04/16/prometheus/1650849299406.png" alt="1650849299406"></p>
+
+        <h5 id="监控客户端主机">
+          <a href="#监控客户端主机" class="heading-link"><i class="fas fa-link"></i></a><a href="#监控客户端主机" class="headerlink" title="监控客户端主机"></a>监控客户端主机</h5>
+      <p>如果你想采集其他服务器的信息，就需要在目标服务器上安装node_exporter插件，prometheus是通过配置node_exporter的插件地址来采集相应服务器的信息。我们可以把prometheus看做服务端，exporter相关的插件看做客户端。</p>
+<p>1.下载node_exporter:<span class="exturl"><a class="exturl__link" target="_blank" rel="noopener" href="https://github.com/prometheus/node_exporter/releases/download/v1.3.1/node_exporter-1.3.1.linux-amd64.tar.gz">https://github.com/prometheus/node_exporter/releases/download/v1.3.1/node_exporter-1.3.1.linux-amd64.tar.gz</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p>2.安装node_exporter</p>
+<figure class="highlight shell"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="language-bash">解压安装包</span></span><br><span class="line">tar -zxvf node_exporter-1.3.1.linux-amd64.tar.gz</span><br><span class="line"><span class="meta">#</span><span class="language-bash">更改目录名称</span></span><br><span class="line">mv node_exporter-1.3.1.linux-amd64 /usr/local/node_exporter</span><br></pre></td></tr></table></div></figure>
+
+<p>3.运行node_exporter</p>
+<figure class="highlight shell"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup /usr/local/node_exporter/node_exporter &amp;</span><br></pre></td></tr></table></div></figure>
+
+<p>4.配置服务端，采集客户端数据</p>
+<p>vim &#x2F;usr&#x2F;local&#x2F;prometheus&#x2F;prometheus.yml</p>
+<figure class="highlight shell"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- job_name: &#x27;agent&#x27;</span><br><span class="line">   static_configs:</span><br><span class="line">     - targets: [&#x27;192.168.147.8:9100&#x27;]</span><br></pre></td></tr></table></div></figure>
+
+<p>5.重启prometheus。</p>
+
+        <h5 id="prometheus监控MySQL">
+          <a href="#prometheus监控MySQL" class="heading-link"><i class="fas fa-link"></i></a><a href="#prometheus监控MySQL" class="headerlink" title="prometheus监控MySQL"></a>prometheus监控MySQL</h5>
+      <p>到prometheus官网下载相关的mysql插件<span class="exturl"><a class="exturl__link" target="_blank" rel="noopener" href="https://github.com/prometheus/mysqld_exporter/releases/download/v0.14.0/mysqld_exporter-0.14.0.linux-amd64.tar.gz">https://github.com/prometheus/mysqld_exporter/releases/download/v0.14.0/mysqld_exporter-0.14.0.linux-amd64.tar.gz</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p>1.解压，重命名</p>
+<figure class="highlight shell"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf mysqld_exporter-0.14.0.linux-amd64.tar.gz</span><br><span class="line">mv mysqld_exporter-0.14.0.linux-amd64 /usr/local/mysqld_exporter</span><br></pre></td></tr></table></div></figure>
+
+<p>2.安装MySQL数据库，查看博主MySQL安装教程</p>
+<p>3.新建&#x2F;usr&#x2F;local&#x2F;mysql_exporter&#x2F;my.cnf文件，配置下面内容</p>
+<figure class="highlight shell"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[client]</span><br><span class="line">user=root #数据库名</span><br><span class="line">password=123456 #数据库密码</span><br></pre></td></tr></table></div></figure>
+
+<p>4.启动mysql_exporeter</p>
+<figure class="highlight shell"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup ./mysqld_exporeter --config.my-cnf=/usr/local/mysql_exporter/my.cnf &amp;</span><br></pre></td></tr></table></div></figure>
+
+<p>5.服务器获取mysql_exporter</p>
+<p>vim &#x2F;usr&#x2F;local&#x2F;prometheus&#x2F;prometheus.yml</p>
+<figure class="highlight shell"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- job_name: &#x27;mysql_exporter&#x27;</span><br><span class="line">  static_configs:</span><br><span class="line">  - targets: [&#x27;192.168.147.8:9104&#x27;]</span><br></pre></td></tr></table></div></figure>
+
+<p>6.重启prometheus</p>
+
+        <h4 id="Grafana安装">
+          <a href="#Grafana安装" class="heading-link"><i class="fas fa-link"></i></a><a href="#Grafana安装" class="headerlink" title="Grafana安装"></a>Grafana安装</h4>
+      <p>1.下载安装</p>
+<figure class="highlight shell"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https://dl.grafana.com/enterprise/release/grafana-enterprise-8.4.6-1.x86_64.rpm</span><br><span class="line">yum -y install grafana-enterprise-8.4.6-1.x86_64.rpm</span><br></pre></td></tr></table></div></figure>
+
+<p>2.启动服务</p>
+<figure class="highlight shell"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl start grafana-server</span><br><span class="line">systemctl enable grafana-server</span><br></pre></td></tr></table></div></figure>
+
+<p>3.用浏览器访问界面，默认端口是3000,添加prometheus数据源，选中设置图标，点击Data sources</p>
+<p><img src="/2022/04/16/prometheus/1650616079698.png" alt="1650616079698"></p>
+<p>配置连接prometheus地址，点击保存即可</p>
+<p><img src="/2022/04/16/prometheus/1650616200899.png" alt="1650616200899"></p>
+<p>4.导入模板</p>
+<p>你可以到网上搜索相应的模板导入，或者直接搜索8919导入。该模板是服务端的系统信息的模板。</p>
+<p><img src="/2022/04/16/prometheus/1650616353899.png" alt="1650616353899"></p>
+<p>导入后效果如下：</p>
+<p><img src="/2022/04/16/prometheus/1650616547405.png" alt="1650616547405"></p>
+
+        <h4 id="alertmanager报警">
+          <a href="#alertmanager报警" class="heading-link"><i class="fas fa-link"></i></a><a href="#alertmanager报警" class="headerlink" title="alertmanager报警"></a>alertmanager报警</h4>
+      <p>1.下载解压安装</p>
+<figure class="highlight shell"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/prometheus/alertmanager/releases/download/v0.21.0/alertmanager-0.21.0.linux-amd64.tar.gz</span><br><span class="line">tar zxvf alertmanager-0.21.0.linux-amd64.tar.gz -C /usr/local/</span><br><span class="line">mv alertmanager-0.21.0.linux-amd64 /usr/local/alertmanager</span><br><span class="line">cd /usr/local/alertmanager</span><br><span class="line">./alertmanager  #启动</span><br></pre></td></tr></table></div></figure>
+
+
+
+<p>2.配置prometheus规则</p>
+<p>vim prometheus.yml,去掉注释</p>
+<figure class="highlight yaml"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">rule_files:</span></span><br><span class="line">   <span class="bullet">-</span> <span class="string">rule.yml</span></span><br></pre></td></tr></table></div></figure>
+
+
+
+<p>3.在prometheus根目录下创建rule.yml文件，我这里只是配置了进程状态监控</p>
+<figure class="highlight shell"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">vim rule.yml</span><br><span class="line">groups:</span><br><span class="line">- name: port_status</span><br><span class="line">  rules:</span><br><span class="line">  - alert: &quot;端口状态监测&quot;</span><br><span class="line">    expr: probe_success&#123;job=&quot;port_status&quot;&#125; == 0</span><br><span class="line">    for: 1s</span><br><span class="line">    labels:</span><br><span class="line">      severity: &quot;High&quot;</span><br><span class="line">    annotations:</span><br><span class="line">      description: &quot;Instance &#123;&#123; $labels.instance &#125;&#125; 端口down掉&quot;</span><br><span class="line">      value: &quot;&#123;&#123; $value &#125;&#125;&quot;</span><br><span class="line"></span><br><span class="line">- name: web_status</span><br><span class="line">  rules:</span><br><span class="line">  - alert: &quot;网站状态监测&quot;</span><br><span class="line">    expr: probe_http_status_code  == 0</span><br><span class="line">    for: 1s</span><br><span class="line">    labels:</span><br><span class="line">      severity: &quot;High&quot;</span><br><span class="line">    annotations:</span><br><span class="line">      description:  &quot;Instance &#123;&#123; $labels.instance &#125;&#125; 网站无法访问&quot;</span><br><span class="line">      value: &quot;&#123;&#123; $value &#125;&#125;&quot;</span><br><span class="line"></span><br><span class="line">- name: process</span><br><span class="line">  rules:</span><br><span class="line">  - alert: &quot;进程状态监测&quot;</span><br><span class="line">    expr: namedprocess_namegroup_num_procs  == 0</span><br><span class="line">    for: 1s</span><br><span class="line">    labels:</span><br><span class="line">      severity: &quot;High&quot;</span><br><span class="line">    annotations:</span><br><span class="line">      description: &quot;Instance &#123;&#123; $labels.instance &#125;&#125; 服务进程死亡!&quot;</span><br><span class="line">      value: &quot;&#123;&#123; $value &#125;&#125;&quot;</span><br></pre></td></tr></table></div></figure>
+
+<p>4.进入alertmanager根目录，编辑alertmanager.yml，配置如下</p>
+<figure class="highlight yaml"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">global:</span></span><br><span class="line">   <span class="attr">resolve_timeout:</span> <span class="string">5m</span></span><br><span class="line">  <span class="comment">## 这里为qq邮箱 SMTP 服务地址，官方地址为 smtp.qq.com 端口为 465 或 587，同时要设置开启 POP3/SMTP 服务。</span></span><br><span class="line">   <span class="attr">smtp_smarthost:</span> <span class="string">&#x27;smtp.qq.com:465&#x27;</span></span><br><span class="line">   <span class="attr">smtp_from:</span> <span class="string">&#x27;952635xxx@qq.com&#x27;</span></span><br><span class="line">   <span class="attr">smtp_auth_username:</span> <span class="string">&#x27;952635xxx@qq.com&#x27;</span></span><br><span class="line">   <span class="comment">#授权码，不是密码,在 QQ 邮箱服务端设置开启 POP3/SMTP 服务时会提示</span></span><br><span class="line">   <span class="attr">smtp_auth_password:</span> <span class="string">&#x27;psejbvpfrqfebdhb&#x27;</span></span><br><span class="line">   <span class="attr">smtp_require_tls:</span> <span class="literal">false</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">#1、模板</span></span><br><span class="line"><span class="comment">#templates:</span></span><br><span class="line"><span class="comment">#   - &#x27;/usr/local/alertmanager/templates/alert.tmpl&#x27;</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">#2、路由</span></span><br><span class="line"><span class="attr">route:</span></span><br><span class="line">   <span class="attr">group_by:</span> [<span class="string">&#x27;alertname&#x27;</span>]</span><br><span class="line">   <span class="attr">group_wait:</span> <span class="string">10s</span></span><br><span class="line">   <span class="attr">group_interval:</span> <span class="string">10s</span></span><br><span class="line">   <span class="attr">repeat_interval:</span> <span class="string">1h</span></span><br><span class="line">   <span class="comment">#邮箱</span></span><br><span class="line">   <span class="attr">receiver:</span> <span class="string">&#x27;email&#x27;</span></span><br><span class="line"> </span><br><span class="line"><span class="attr">receivers:</span></span><br><span class="line">   <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">&#x27;email&#x27;</span></span><br><span class="line">     <span class="attr">email_configs:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">to:</span> <span class="string">&#x27;952635xxx@qq.com&#x27;</span></span><br><span class="line">          <span class="attr">send_resolved:</span> <span class="literal">true</span></span><br></pre></td></tr></table></div></figure>
+
+
+
+<p>5.检测配置文件是否正常</p>
+<figure class="highlight shell"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/apps/alertmanager/amtool check-config /usr/apps/alertmanager/alertmanager.yml</span><br></pre></td></tr></table></div></figure>
+
+<p>6.重启prometheus和alertmanager，打开浏览器如下说明成功，然后停掉相关进程看看是否有邮件接受到即可。</p>
+<p><img src="/2022/04/16/prometheus/1650850067207.png" alt="1650850067207"></p>
+</div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ 本文结束，感谢您的阅读 ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">本文作者: </span><span class="copyright-author__value"><a href="https://gechangjia.github.io">gechangjia</a></span></div><div class="copyright-link"><span class="copyright-link__name">本文链接: </span><span class="copyright-link__value"><a href="https://gechangjia.github.io/2022/04/16/prometheus/">https://gechangjia.github.io/2022/04/16/prometheus/</a></span></div><div class="copyright-notice"><span class="copyright-notice__name">版权声明: </span><span class="copyright-notice__value">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" rel="external nofollow" target="_blank">BY-NC-SA</a> 许可协议。转载请注明出处！</span></div></div><div class="post-tags"><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="https://gechangjia.github.io/tags/prometheus/">prometheus</a></span></div><nav class="post-paginator paginator"><div class="paginator-prev"><a class="paginator-prev__link" href="/2022/04/26/prometheus_node_exporter/"><span class="paginator-prev__icon"><i class="fas fa-angle-left"></i></span><span class="paginator-prev__text">prometheus自定义监控项</span></a></div><div class="paginator-next"><a class="paginator-next__link" href="/2022/04/16/tomcat01/"><span class="paginator-prev__text">tomcat安装配置（linux）</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">文章目录</span><span class="sidebar-nav-ov">站点概览</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="toc-number">1.</span> <span class="toc-text">
+          环境搭建</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%8C%E6%AD%A5%E6%97%B6%E9%97%B4"><span class="toc-number">2.</span> <span class="toc-text">
+          同步时间</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85prometheus"><span class="toc-number">3.</span> <span class="toc-text">
+          下载安装prometheus</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%9B%91%E6%8E%A7%E5%AE%A2%E6%88%B7%E7%AB%AF%E4%B8%BB%E6%9C%BA"><span class="toc-number">3.1.</span> <span class="toc-text">
+          监控客户端主机</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#prometheus%E7%9B%91%E6%8E%A7MySQL"><span class="toc-number">3.2.</span> <span class="toc-text">
+          prometheus监控MySQL</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Grafana%E5%AE%89%E8%A3%85"><span class="toc-number">4.</span> <span class="toc-text">
+          Grafana安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#alertmanager%E6%8A%A5%E8%AD%A6"><span class="toc-number">5.</span> <span class="toc-text">
+          alertmanager报警</span></a></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/stun-logo.svg" alt="avatar"></div><p class="sidebar-ov-author__text">加油！每天进步一点</p></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">22</div><div class="sidebar-ov-state-item__name">文章</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--tags" href="/tags/"><div class="sidebar-ov-state-item__count">14</div><div class="sidebar-ov-state-item__name">标签</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="知识共享许可协议" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">你已阅读了 </span><span class="sidebar-reading-info__num">0</span><span class="sidebar-reading-info__perc">%</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2022</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>gechangjia</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="/js/utils.js?v=2.6.2"></script><script src="/js/stun-boot.js?v=2.6.2"></script><script src="/js/scroll.js?v=2.6.2"></script><script src="/js/header.js?v=2.6.2"></script><script src="/js/sidebar.js?v=2.6.2"></script></body></html>

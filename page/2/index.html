@@ -1,0 +1,624 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.png?v=2.6.2" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.png?v=2.6.2" type="image/png" sizes="32x32"><meta property="og:type" content="website">
+<meta property="og:title" content="谁是猛男">
+<meta property="og:url" content="https://gechangjia.github.io/page/2/index.html">
+<meta property="og:site_name" content="谁是猛男">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="gechangjia">
+<meta name="twitter:card" content="summary"><title>谁是猛男</title><link ref="canonical" href="https://gechangjia.github.io/page/2/index.html"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.6.2"><script src="/live2d-widget-master/autoload.js"></script><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  algolia: undefined,
+  assistSearch: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":true,"scrollDownIcon":true},
+  postWidget: {"endText":true},
+  nightMode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"default","highlight":"light","wordWrap":false},
+  reward: false,
+  fancybox: false,
+  zoomImage: {"gapAside":"20px"},
+  galleryWaterfall: undefined,
+  lazyload: false,
+  pjax: undefined,
+  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: undefined,
+  prompt: {"copyButton":"复制","copySuccess":"复制成功","copyError":"复制失败"},
+  sourcePath: {"js":"js","css":"css","images":"images"},
+};
+
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.1"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">首页</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">文章</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/tags/"><span class="header-nav-menu-item__icon"><i class="fas fa-tags"></i></span><span class="header-nav-menu-item__text">标签</span></a></div></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">谁是猛男</div><div class="header-banner-info__subtitle">不管遇到什么困难，都要燃烧你的心，勇敢的走下去</div></div><div class="header-banner-arrow"><div class="header-banner-arrow__icon"><i class="fas fa-angle-down"></i></div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content content-home" id="content"><section class="postlist"><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2022/04/16/tomcat01/">tomcat安装配置（linux）</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2022-04-15</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2022-04-15</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>安装步骤：</p>
+<p>1.去官网下载相应的安装包</p>
+<p>2.上传服务器解压</p>
+<p>3.配置后台登录</p>
+<p>4.测试</p>
+
+        <h4 id="去官网下载相应的安装包">
+          <a href="#去官网下载相应的安装包" class="heading-link"><i class="fas fa-link"></i></a><a href="#去官网下载相应的安装包" class="headerlink" title="去官网下载相应的安装包"></a>去官网下载相应的安装包</h4>
+      <p>安装tomcat之前要先安装jdk,jdk安装步骤可以查看本博客相应的文章</p>
+<figure class="highlight shell"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.62/bin/apache-tomcat-9.0.62.tar.gz</span><br></pre></td></tr></table></div></figure>
+
+
+        <h4 id="上传服务器解压">
+          <a href="#上传服务器解压" class="heading-link"><i class="fas fa-link"></i></a><a href="#上传服务器解压" class="headerlink" title="上传服务器解压"></a>上传服务器解压</h4>
+      <figure class="highlight shell"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rz apache-tomcat-9.0.62.tar.gz</span><br><span class="line">tar -zxvf apache-tomcat-9.0.62.tar.gz</span><br></pre></td></tr></table></div></figure>
+
+
+        <h4 id="配置后台登录">
+          <a href="#配置后台登录" class="heading-link"><i class="fas fa-link"></i></a><a href="#配置后台登录" class="headerlink" title="配置后台登录"></a>配置后台登录</h4>
+      <p>编辑conf&#x2F;tomcat-user.xml文件，内容如下：</p>
+<figure class="highlight shell"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;role rolename=&quot;manager-gui&quot;/&gt;</span><br><span class="line">&lt;user username=&quot;tomcat&quot; password=&quot;s3cret&quot; roles=&quot;manager-gui&quot;/&gt;</span><br></pre></td></tr></table></div></figure>
+
+<p><img src="/2022/04/16/tomcat01/1650002701833.png" alt="1650002701833"></p>
+<p>取消tomcat的ip限制，进入tomcat文件夹下的webapps&#x2F;manager&#x2F;META-INF&#x2F;context.xml将下面内容注释掉</p>
+<figure class="highlight shell"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;Valve className=&quot;org.apache.catalina.valves.RemoteAddrValve&quot;</span><br><span class="line">         allow=&quot;127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1&quot; /&gt;</span><br></pre></td></tr></table></div></figure>
+
+
+        <h4 id="测试">
+          <a href="#测试" class="heading-link"><i class="fas fa-link"></i></a><a href="#测试" class="headerlink" title="测试"></a>测试</h4>
+      <p>浏览器访问如下所示证明是安装完成</p>
+<p><img src="/2022/04/16/tomcat01/1650003158927.png" alt="1650003158927"></p>
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2022/04/15/java01/">jdk安装配置(linux)</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2022-04-14</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2022-06-08</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>安装步骤：</p>
+<p>1.到官网下载安装包</p>
+<p>2.解压安装包</p>
+<p>3.配置环境变量</p>
+<p>4.测试</p>
+
+        <h4 id="下载安装包">
+          <a href="#下载安装包" class="heading-link"><i class="fas fa-link"></i></a><a href="#下载安装包" class="headerlink" title="下载安装包"></a>下载安装包</h4>
+      <p>到官网下载相应的安装包</p>
+<figure class="highlight shell"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://www.oracle.com/java/technologies/downloads</span><br></pre></td></tr></table></div></figure>
+
+
+        <h4 id="解压安装包">
+          <a href="#解压安装包" class="heading-link"><i class="fas fa-link"></i></a><a href="#解压安装包" class="headerlink" title="解压安装包"></a>解压安装包</h4>
+      <p>将下载的安装包上传至服务器，并解压</p>
+<figure class="highlight shell"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf jdk1.8.0_201.tar.gz</span><br></pre></td></tr></table></div></figure>
+
+<p><img src="/2022/04/15/java01/1649920162227.png" alt="1649920162227"></p>
+
+        <h4 id="配置环境变量">
+          <a href="#配置环境变量" class="heading-link"><i class="fas fa-link"></i></a><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h4>
+      <p>编辑profile文件，在尾部添加如下信息，注意JAVA_HOME修改成自己的路径哦</p>
+<figure class="highlight shell"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile</span><br><span class="line"></span><br><span class="line">export JAVA_HOME=/opt/java/jdk1.8.0_201</span><br><span class="line">export CLASSPATH=.:$&#123;JAVA_HOME&#125;/jre/lib/rt.jar:$&#123;JAVA_HOME&#125;/lib/dt.jar:</span><br><span class="line"><span class="meta">$</span><span class="language-bash">&#123;JAVA_HOME&#125;/lib/tools.jar <span class="comment">#这一行和上面一行在同一行</span></span></span><br><span class="line"></span><br><span class="line">export PATH=$PATH:$&#123;JAVA_HOME&#125;/bin</span><br></pre></td></tr></table></div></figure>
+
+
+
+
+        <h4 id="测试">
+          <a href="#测试" class="heading-link"><i class="fas fa-link"></i></a><a href="#测试" class="headerlink" title="测试"></a>测试</h4>
+      <p>执行如下两条指令，如图说明成功</p>
+<figure class="highlight shell"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">source /etc/profile</span><br><span class="line">java -version</span><br></pre></td></tr></table></div></figure>
+
+<p><img src="/2022/04/15/java01/1649920851887.png" alt="1649920851887"></p>
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2022/04/13/computerNetwork1.1/">计算机网络-概述</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2022-04-12</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2022-04-13</span></span></div></header><div class="post-body"><div class="post-excerpt">
+        <h3 id="第一章">
+          <a href="#第一章" class="heading-link"><i class="fas fa-link"></i></a><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h3>
+      
+        <h4 id="概述">
+          <a href="#概述" class="heading-link"><i class="fas fa-link"></i></a><a href="#概述" class="headerlink" title="概述"></a>概述</h4>
+      <p>网络：这里指“三网”，即电信网络、有线电视网络和计算机网络。</p>
+<p>网络融合：随着技术的发展，电信网络和有线电视网络都逐渐融入了现代计算机网络的技术，这就产生了“网络融合”</p>
+<p>资源共享：计算机网络上有许多主机存储了大量有价值的电子文档，可供上网的用户自由读取或下载（无偿或有偿），这些资源好像就在用户身边一样。</p>
+
+        <h4 id="因特网">
+          <a href="#因特网" class="heading-link"><i class="fas fa-link"></i></a><a href="#因特网" class="headerlink" title="因特网"></a>因特网</h4>
+      <p>先认识网络，因特网，互联网这三个概念。</p>
+<p>网络：由若干结点(node)[插图]和连接这些结点的链路(link)组成。</p>
+<p>互联网：网络和网络还可以通过路由器互连起来，这样就构成了一个覆盖范围更大的网络，即互联网</p>
+<p>因特网：是世界上最大的互连网络（用户数以亿计，互连的网络数以百万计）。</p>
+<p><img src="/2022/04/13/computerNetwork1.1/1649727589146.png" alt="1649727589146"></p>
+<p>网络把许多计算机连接在一起，而因特网则把许多网络连接在一起。</p>
+<p>因特网就是世界上最大的计算机网络。</p>
+
+        <h4 id="因特网发展的三个阶段">
+          <a href="#因特网发展的三个阶段" class="heading-link"><i class="fas fa-link"></i></a><a href="#因特网发展的三个阶段" class="headerlink" title="因特网发展的三个阶段"></a>因特网发展的三个阶段</h4>
+      <p>1.第一阶段是从单个网络ARPANET向互联网发展的过程。</p>
+<p>​        1983年，TCP&#x2F;IP协议成为ARPANET上的标准协议，使得所有使用TCP&#x2F;IP协议的计算机都能利用互连网相互通信，因而人们就把1983年作为因特网的诞生时间。1990年，ARPANET正式宣布关闭，因为它的实验任务已经完成。</p>
+<p>internet和Internet的区别。</p>
+<p>​        internet（互联网或互连网）是一个通用名词，它泛指由多个计算机网络互连而成的网络</p>
+<p>​        Internet（因特网）则是一个专用名词，它指当前全球最大的、开放的、由众多网络相互连接而成的特定计算机网络，它采用TCP&#x2F;IP协议族作为通信的规则，且其前身是美国的ARPANET。</p>
+<p>2.第二阶段的特点是建成了三级结构的因特网。</p>
+<p>​       它是一个三级计算机网络，分为主干网、地区网和校园网（或企业网）。</p>
+<p>3.第三阶段的特点是逐渐形成了多层次 ISP 结构的因特网。</p>
+<p>​        ISP:因特网服务提供者ISP(Internet Service Provider)。中国电信、中国联通和中国移动就是我国最有名的ISP。</p>
+<p><img src="/2022/04/13/computerNetwork1.1/epub_655484_6.png" alt="epub_655484_6"></p>
+
+        <h4 id="因特网的组成">
+          <a href="#因特网的组成" class="heading-link"><i class="fas fa-link"></i></a><a href="#因特网的组成" class="headerlink" title="因特网的组成"></a>因特网的组成</h4>
+      <p>边缘部分：由所有连接在因特网上的主机组成。这部分是用户直接使用的，用来进行通信（传送数据、音频或视频）和资源共享。</p>
+<p>核心部分：由大量网络和连接这些网络的路由器组成。这部分是为边缘部分提供服务的（提供连通性和交换）。</p>
+<p><img src="/2022/04/13/computerNetwork1.1/epub_655484_12.png" alt="epub_655484_12"></p>
+
+        <h5 id="边缘部分">
+          <a href="#边缘部分" class="heading-link"><i class="fas fa-link"></i></a><a href="#边缘部分" class="headerlink" title="边缘部分"></a>边缘部分</h5>
+      <p>在网络边缘的端系统之间的通信方式通常可划分为两大类：客户-服务器方式（C&#x2F;S方式）和对等方式（P2P方式）</p>
+<p>客户是服务请求方，服务器是服务提供方。</p>
+<p>客户程序：(1) 被用户调用后运行，在通信时主动向远地服务器发起通信（请求服务）。因此，客户程序必须知道服务器程序的地址。(2) 不需要特殊的硬件和很复杂的操作系统。服务器程序：(1) 是一种专门用来提供某种服务的程序，可同时处理多个远地或本地客户的请求。(2) 系统启动后即自动调用并一直不断地运行着，被动地等待并接受来自各地的客户的通信请求。因此，服务器程序不需要知道客户程序的地址。(3) 一般需要有强大的硬件和高级的操作系统支持。客户与服务器的通信关系建立后，通信可以是双向的，客户和服务器都可发送和接收数据。</p>
+<p>对等连接方式从本质上看仍然是使用客户-服务器方式，只是对等连接中的每一个主机既是客户又同时是服务器。</p>
+
+        <h5 id="核心部分">
+          <a href="#核心部分" class="heading-link"><i class="fas fa-link"></i></a><a href="#核心部分" class="headerlink" title="核心部分"></a>核心部分</h5>
+      <p>​       在网络核心部分起特殊作用的是路由器（router），它是一种专用计算机（但不是主机）。路由器是实现分组交换（packet switching）的关键构件，其任务是转发收到的分组，这是网络核心部分最重要的功能。</p>
+<p>三种交换方式：</p>
+<p>电路交换：整个报文的比特流连续地从源点直达终点，好像在一个管道中传送。这种必须经过“建立连接（占用通信资源）→通话（一直占用通信资源）→释放连接（归还通信资源）”三个步骤的交换方式称为电路交换。电路交换的一个重要特点就是在通话的全部时间内，通话的两个用户始终占用端到端的通信资源。</p>
+<p>分组交换：单个分组（这只是整个报文的一部分）传送到相邻结点，存储下来后查找转发表，转发到下一个结点。</p>
+<p>​    报文：通常我们把要发送的整块数据称为一个报文</p>
+<p>​    分组：先把较长的报文划分成为一个个更小的等长数据段，例如，每个数据段为1024bit[插图]。在每一个数据段前面，加上一些必要的控制信息组成的首部(header)后，就构成了一个分组(packet)。分组又称为“包”，而分组的首部也可称为“包头”。</p>
+<p>报文交换：整个报文先传送到相邻结点，全部存储下来后查找转发表，转发到下一个结点。</p>
+
+        <h4 id="几种不同类别的网络">
+          <a href="#几种不同类别的网络" class="heading-link"><i class="fas fa-link"></i></a><a href="#几种不同类别的网络" class="headerlink" title="几种不同类别的网络"></a>几种不同类别的网络</h4>
+      <p>按网络的作用范围进行分类</p>
+<p>广域网</p>
+<p>城域网</p>
+<p>局域网</p>
+<p>个人区域网</p>
+<p>按网络的使用者进行分类</p>
+<p>公用网</p>
+<p>专用网</p>
+<p>用来把用户接入到因特网的网络</p>
+<p>接入网</p>
+
+        <h4 id="计算机网络的性能指标">
+          <a href="#计算机网络的性能指标" class="heading-link"><i class="fas fa-link"></i></a><a href="#计算机网络的性能指标" class="headerlink" title="计算机网络的性能指标"></a>计算机网络的性能指标</h4>
+      <p>速率：网络技术中的速率指的是连接在计算机网络上的主机在数字信道上传送数据的速率，它也称为数据率(data rate)或比特率(bit rate)。</p>
+<p>带宽：表示通信线路允许通过的信号频带范围就称为线路的带宽</p>
+<p>吞吐量：表示在单位时间内通过某个网络（或信道、接口）的数据量。</p>
+<p>时延：是指数据（一个报文或分组，甚至比特）从网络（或链路）的一端传送到另一端所需的时间</p>
+
+        <h4 id="计算机网络的非性能指标">
+          <a href="#计算机网络的非性能指标" class="heading-link"><i class="fas fa-link"></i></a><a href="#计算机网络的非性能指标" class="headerlink" title="计算机网络的非性能指标"></a>计算机网络的非性能指标</h4>
+      <p>费用：</p>
+<p>质量：</p>
+<p>标准化：</p>
+<p>可靠性：</p>
+<p>可扩展性和可升级性：</p>
+<p>易于管理和维护：</p>
+
+        <h4 id="计算机网络体系结构的形成">
+          <a href="#计算机网络体系结构的形成" class="heading-link"><i class="fas fa-link"></i></a><a href="#计算机网络体系结构的形成" class="headerlink" title="计算机网络体系结构的形成"></a>计算机网络体系结构的形成</h4>
+      <p>原因：为了解决不同产品使用不同的网络体系，是不同设备间无法相互连通，导致市场出现垄断现象。</p>
+<p>国际标准化组织ISO提出了（开放系统互连基本参考模型）OSI的标准，但是由于现实的问题一直停留在理论上，没有实际应用到实际中。得到广泛应用的是非国际标准的TCP&#x2F;IP。</p>
+
+        <h5 id="协议与划分层次">
+          <a href="#协议与划分层次" class="heading-link"><i class="fas fa-link"></i></a><a href="#协议与划分层次" class="headerlink" title="协议与划分层次"></a>协议与划分层次</h5>
+      <p>语法：即数据与控制信息的结构或格式；</p>
+<p>语义：即需要发出何种控制信息，完成何种动作以及做出何种响应；</p>
+<p>同步：即事件实现顺序的详细说明。</p>
+<p>分层的优点：</p>
+<p>(1) 各层之间是独立的</p>
+<p>(2) 灵活性好</p>
+<p>(3) 结构上可分割开</p>
+<p>(4) 易于实现和维护</p>
+<p>(5) 能促进标准化工作</p>
+<p>我们把计算机网络的各层及其协议的集合，称为网络的体系结构</p>
+
+        <h4 id="五层协议的体系结构">
+          <a href="#五层协议的体系结构" class="heading-link"><i class="fas fa-link"></i></a><a href="#五层协议的体系结构" class="headerlink" title="五层协议的体系结构"></a>五层协议的体系结构</h4>
+      <p>OSI的七层协议体系结构的概念清楚，理论也较完整，但它既复杂又不实用。目前使用最广泛的是TCP&#x2F;IP的体系结构，为了方便学习，我们采用折中的做法，采用只有五层的体系结构</p>
+<p><img src="/2022/04/13/computerNetwork1.1/epub_655484_37.png" alt="epub_655484_12"></p>
+<p>应用层：应用层是体系结构中的最高层。应用层的任务是通过应用进程间的交互来完成特定网络应用。</p>
+<p>运输层：运输层的任务就是负责向两个主机中进程之间的通信提供通用的数据传输服务。</p>
+<p>网络层：网络层负责为分组交换网上的不同主机提供通信服务。</p>
+<p>数据链路层：在两个相邻结点之间传送数据时，数据链路层将网络层交下来的IP数据报组装成帧（framing），在两个相邻结点间的链路上传送帧（frame）。每一帧包括数据和必要的控制信息（如同步信息、地址信息、差错控制等）。</p>
+<p>物理层：如双绞线、同轴电缆、光缆、无线信道等，</p>
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2022/04/13/Hard_drive_capacity/">硬盘扩容</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2022-04-12</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2022-05-16</span></span></div></header><div class="post-body"><div class="post-excerpt">
+        <h3 id="目标">
+          <a href="#目标" class="heading-link"><i class="fas fa-link"></i></a><a href="#目标" class="headerlink" title="目标"></a>目标</h3>
+      <p>使用df -TH命令查看硬盘使用情况，我们现在想扩容&#x2F;dev&#x2F;mapper&#x2F;centos-root分区的容量</p>
+<figure class="highlight shell"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# df -TH</span><br><span class="line">文件系统                类型      容量  已用  可用 已用% 挂载点</span><br><span class="line">/dev/mapper/centos-root xfs       8.6G  5.7G  3.0G   67% /</span><br><span class="line">devtmpfs                devtmpfs  945M     0  945M    0% /dev</span><br><span class="line">tmpfs                   tmpfs     956M     0  956M    0% /dev/shm</span><br><span class="line">tmpfs                   tmpfs     956M  9.0M  947M    1% /run</span><br><span class="line">tmpfs                   tmpfs     956M     0  956M    0% /sys/fs/cgroup</span><br><span class="line">/dev/sda1               xfs       1.1G  150M  914M   15% /boot</span><br><span class="line">tmpfs                   tmpfs     192M     0  192M    0% /run/user/0</span><br></pre></td></tr></table></div></figure>
+
+
+
+
+        <h3 id="一、前期准备">
+          <a href="#一、前期准备" class="heading-link"><i class="fas fa-link"></i></a><a href="#一、前期准备" class="headerlink" title="一、前期准备"></a>一、前期准备</h3>
+      <p>（1）打开虚拟机添加一块硬盘</p>
+<p><img src="/2022/04/13/Hard_drive_capacity/1652669941975.png" alt="1652669941975"></p>
+<p>一直点击下一步即可，到磁盘大小我们改成5G即可</p>
+<p><img src="/2022/04/13/Hard_drive_capacity/1652670098139.png" alt="1652670321561"></p>
+<p>点击下一步，然后保存即可，最后打开虚拟机</p>
+
+        <h3 id="二、硬盘分区，格式化">
+          <a href="#二、硬盘分区，格式化" class="heading-link"><i class="fas fa-link"></i></a><a href="#二、硬盘分区，格式化" class="headerlink" title="二、硬盘分区，格式化"></a>二、硬盘分区，格式化</h3>
+      <p>yum -y install parted 安装分区命令</p>
+<p>使用lsblk 命令查看刚刚添加的硬盘，如下图sdb就是我们刚刚添加的硬盘5G，现在我们先对它进行磁盘分区</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# lsblk</span><br><span class="line">NAME            MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT</span><br><span class="line">sda               8:0    0   10G  0 disk </span><br><span class="line">├─sda1            8:1    0    1G  0 part /boot</span><br><span class="line">└─sda2            8:2    0    9G  0 part </span><br><span class="line">  ├─centos-root 253:0    0    8G  0 lvm  /</span><br><span class="line">  └─centos-swap 253:1    0    1G  0 lvm  [SWAP]</span><br><span class="line">sdb               8:16   0    5G  0 disk </span><br><span class="line">sr0              11:0    1  4.2G  0 rom  </span><br></pre></td></tr></table></div></figure>
+
+<p>由于生产环境一般都是大于2T的扩容，我们就直接使用parted命令进行分区</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# parted /dev/sdb</span><br><span class="line">GNU Parted 3.1</span><br><span class="line">使用 /dev/sdb</span><br><span class="line">Welcome to GNU Parted! Type &#x27;help&#x27; to view a list of commands.</span><br><span class="line">(parted) </span><br></pre></td></tr></table></div></figure>
+
+<p>输入m查看所以的命令</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# parted /dev/sdb</span><br><span class="line">GNU Parted 3.1</span><br><span class="line">使用 /dev/sdb</span><br><span class="line">Welcome to GNU Parted! Type &#x27;help&#x27; to view a list of commands.</span><br><span class="line">(parted) m                                                                </span><br><span class="line">  align-check TYPE N                        check partition N for TYPE(min|opt) alignment</span><br><span class="line">  help [COMMAND]                           print general help, or help on COMMAND</span><br><span class="line">  mklabel,mktable LABEL-TYPE               create a new disklabel (partition table)</span><br><span class="line">  mkpart PART-TYPE [FS-TYPE] START END     make a partition</span><br><span class="line">  name NUMBER NAME                         name partition NUMBER as NAME</span><br><span class="line">  print [devices|free|list,all|NUMBER]     display the partition table, available devices, free space, all found partitions, or a particular partition</span><br><span class="line">  quit                                     exit program</span><br><span class="line">  rescue START END                         rescue a lost partition near START and END</span><br><span class="line">  rm NUMBER                                delete partition NUMBER</span><br><span class="line">  select DEVICE                            choose the device to edit</span><br><span class="line">  disk_set FLAG STATE                      change the FLAG on selected device</span><br><span class="line">  disk_toggle [FLAG]                       toggle the state of FLAG on selected device</span><br><span class="line">  set NUMBER FLAG STATE                    change the FLAG on partition NUMBER</span><br><span class="line">  toggle [NUMBER [FLAG]]                   toggle the state of FLAG on partition NUMBER</span><br><span class="line">  unit UNIT                                set the default unit to UNIT</span><br><span class="line">  version                                  display the version number and copyright information of GNU Parted</span><br><span class="line">(parted)</span><br></pre></td></tr></table></div></figure>
+
+<p>输入mklabel gpt创建磁盘标签为GPT</p>
+<figure class="highlight shell"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# parted /dev/sdb</span><br><span class="line">GNU Parted 3.1</span><br><span class="line">使用 /dev/sdb</span><br><span class="line">Welcome to GNU Parted! Type &#x27;help&#x27; to view a list of commands.</span><br><span class="line">(parted) m                                                                </span><br><span class="line">  align-check TYPE N                        check partition N for TYPE(min|opt) alignment</span><br><span class="line">  help [COMMAND]                           print general help, or help on COMMAND</span><br><span class="line">  mklabel,mktable LABEL-TYPE               create a new disklabel (partition table)</span><br><span class="line">  mkpart PART-TYPE [FS-TYPE] START END     make a partition</span><br><span class="line">  name NUMBER NAME                         name partition NUMBER as NAME</span><br><span class="line">  print [devices|free|list,all|NUMBER]     display the partition table, available devices, free space, all found partitions, or a particular partition</span><br><span class="line">  quit                                     exit program</span><br><span class="line">  rescue START END                         rescue a lost partition near START and END</span><br><span class="line">  rm NUMBER                                delete partition NUMBER</span><br><span class="line">  select DEVICE                            choose the device to edit</span><br><span class="line">  disk_set FLAG STATE                      change the FLAG on selected device</span><br><span class="line">  disk_toggle [FLAG]                       toggle the state of FLAG on selected device</span><br><span class="line">  set NUMBER FLAG STATE                    change the FLAG on partition NUMBER</span><br><span class="line">  toggle [NUMBER [FLAG]]                   toggle the state of FLAG on partition NUMBER</span><br><span class="line">  unit UNIT                                set the default unit to UNIT</span><br><span class="line">  version                                  display the version number and copyright information of GNU Parted</span><br><span class="line">(parted) mklabel gpt                                                      </span><br><span class="line">(parted)</span><br></pre></td></tr></table></div></figure>
+
+<p>使用mkpart primary 0% 100%划分所以空间到一个分区，划分后我们使用print打印出来即可看到结果</p>
+<figure class="highlight shell"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">(parted) print                                                            </span><br><span class="line">Model: VMware, VMware Virtual S (scsi)</span><br><span class="line">Disk /dev/sdb: 5369MB</span><br><span class="line">Sector size (logical/physical): 512B/512B</span><br><span class="line">Partition Table: gpt</span><br><span class="line">Disk Flags: </span><br><span class="line"></span><br><span class="line">Number  Start  End  Size  File system  Name  标志</span><br><span class="line"></span><br><span class="line">(parted) mkpart primary 0% 100%                                           </span><br><span class="line">(parted) print                                                            </span><br><span class="line">Model: VMware, VMware Virtual S (scsi)</span><br><span class="line">Disk /dev/sdb: 5369MB</span><br><span class="line">Sector size (logical/physical): 512B/512B</span><br><span class="line">Partition Table: gpt</span><br><span class="line">Disk Flags: </span><br><span class="line"></span><br><span class="line">Number  Start   End     Size    File system  Name     标志</span><br><span class="line"> 1      1049kB  5368MB  5367MB               primary</span><br><span class="line"></span><br><span class="line">(parted)</span><br></pre></td></tr></table></div></figure>
+
+<p>使用quit命令退出完成分区</p>
+<p>接下来使用mkfs.xfs  &#x2F;dev&#x2F;sdb1命令进行格式化，再使用lsblk命令查看我们分了一个名为sdb1的分区</p>
+<figure class="highlight shell"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# lsblk</span><br><span class="line">NAME            MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT</span><br><span class="line">sda               8:0    0   10G  0 disk </span><br><span class="line">├─sda1            8:1    0    1G  0 part /boot</span><br><span class="line">└─sda2            8:2    0    9G  0 part </span><br><span class="line">  ├─centos-root 253:0    0    8G  0 lvm  /</span><br><span class="line">  └─centos-swap 253:1    0    1G  0 lvm  [SWAP]</span><br><span class="line">sdb               8:16   0    5G  0 disk </span><br><span class="line">└─sdb1            8:17   0    5G  0 part </span><br><span class="line">sr0              11:0    1  4.2G  0 rom</span><br></pre></td></tr></table></div></figure>
+
+<p>格式化</p>
+<figure class="highlight shell"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# mkfs.xfs  /dev/sdb1</span><br><span class="line">meta-data=/dev/sdb1              isize=512    agcount=4, agsize=327552 blks</span><br><span class="line">         =                       sectsz=512   attr=2, projid32bit=1</span><br><span class="line">         =                       crc=1        finobt=0, sparse=0</span><br><span class="line">data     =                       bsize=4096   blocks=1310208, imaxpct=25</span><br><span class="line">         =                       sunit=0      swidth=0 blks</span><br><span class="line">naming   =version 2              bsize=4096   ascii-ci=0 ftype=1</span><br><span class="line">log      =internal log           bsize=4096   blocks=2560, version=2</span><br><span class="line">         =                       sectsz=512   sunit=0 blks, lazy-count=1</span><br><span class="line">realtime =none                   extsz=4096   blocks=0, rtextents=0</span><br><span class="line">[root@localhost ~]#</span><br></pre></td></tr></table></div></figure>
+
+
+        <h3 id="三、创建物理分区，逻辑分区">
+          <a href="#三、创建物理分区，逻辑分区" class="heading-link"><i class="fas fa-link"></i></a><a href="#三、创建物理分区，逻辑分区" class="headerlink" title="三、创建物理分区，逻辑分区"></a>三、创建物理分区，逻辑分区</h3>
+      <p>格式化完成了，这是你就可以使用mount &#x2F;dev&#x2F;sdb1 &#x2F;data将该分区挂载到任意目录上面，但是我们这里是要扩容原有的逻辑分区，还需要下面几个步骤</p>
+<p>使用pvcreate &#x2F;dev&#x2F;sdb1创建物理分区，提示成功即可，也可以使用pvs查看</p>
+<figure class="highlight shell"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# pvcreate /dev/sdb1</span><br><span class="line">WARNING: xfs signature detected on /dev/sdb1 at offset 0. Wipe it? [y/n]: y</span><br><span class="line">  Wiping xfs signature on /dev/sdb1.</span><br><span class="line">  Physical volume &quot;/dev/sdb1&quot; successfully created.</span><br><span class="line">[root@localhost ~]# </span><br></pre></td></tr></table></div></figure>
+
+<p>使用vgextend centos &#x2F;dev&#x2F;sdb1命令添加到vg中，其中vg名称可以通过lvs查看你要扩容的分区vg的名称</p>
+<figure class="highlight shell"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# lvs</span><br><span class="line">  LV   VG     Attr       LSize  Pool Origin Data%  Meta%  Move Log Cpy%Sync Convert</span><br><span class="line">  root centos -wi-ao---- &lt;8.00g                                                    </span><br><span class="line">  swap centos -wi-ao----  1.00g                                                    </span><br><span class="line">[root@localhost ~]# vgextend centos /dev/sdb1</span><br><span class="line">  Volume group &quot;centos&quot; successfully extended</span><br><span class="line">[root@localhost ~]# </span><br></pre></td></tr></table></div></figure>
+
+<p>将所以的容量添加到分区中lvextend -l +100%FREE &#x2F;dev&#x2F;mapper&#x2F;centos-root</p>
+<figure class="highlight shell"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# lvextend -l +100%FREE /dev/mapper/centos-root</span><br><span class="line">  Size of logical volume centos/root changed from &lt;8.00 GiB (2047 extents) to 12.99 GiB (3326 extents).</span><br><span class="line">  Logical volume centos/root successfully resized.</span><br><span class="line">[root@localhost ~]# </span><br></pre></td></tr></table></div></figure>
+
+<p>最后实现扩容<br>xfs格式的使用下面命令，这里我是xfs格式我就使用这个命令</p>
+<figure class="highlight shell"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# xfs_growfs /dev/mapper/centos-root</span><br><span class="line">meta-data=/dev/mapper/centos-root isize=512    agcount=4, agsize=524032 blks</span><br><span class="line">         =                       sectsz=512   attr=2, projid32bit=1</span><br><span class="line">         =                       crc=1        finobt=0 spinodes=0</span><br><span class="line">data     =                       bsize=4096   blocks=2096128, imaxpct=25</span><br><span class="line">         =                       sunit=0      swidth=0 blks</span><br><span class="line">naming   =version 2              bsize=4096   ascii-ci=0 ftype=1</span><br><span class="line">log      =internal               bsize=4096   blocks=2560, version=2</span><br><span class="line">         =                       sectsz=512   sunit=0 blks, lazy-count=1</span><br><span class="line">realtime =none                   extsz=4096   blocks=0, rtextents=0</span><br><span class="line">data blocks changed from 2096128 to 3405824</span><br><span class="line">[root@localhost ~]#</span><br></pre></td></tr></table></div></figure>
+
+<p>ext4:格式使用下面命令<br>resize2fs -f &#x2F;dev&#x2F;mapper&#x2F;cl-root</p>
+<p>使用df -TH 查看,可以看到扩容成功</p>
+<figure class="highlight shell"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# df -TH</span><br><span class="line">文件系统                类型      容量  已用  可用 已用% 挂载点</span><br><span class="line">/dev/mapper/centos-root xfs        14G  5.7G  8.3G   41% /</span><br><span class="line">devtmpfs                devtmpfs  945M     0  945M    0% /dev</span><br><span class="line">tmpfs                   tmpfs     956M     0  956M    0% /dev/shm</span><br><span class="line">tmpfs                   tmpfs     956M  9.0M  947M    1% /run</span><br><span class="line">tmpfs                   tmpfs     956M     0  956M    0% /sys/fs/cgroup</span><br><span class="line">/dev/sda1               xfs       1.1G  150M  914M   15% /boot</span><br><span class="line">tmpfs                   tmpfs     192M     0  192M    0% /run/user/0</span><br><span class="line">[root@localhost ~]# </span><br></pre></td></tr></table></div></figure>
+
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2022/04/13/computerNetwork1/">计算机网络-概述</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2022-04-12</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2022-04-13</span></span></div></header><div class="post-body"><div class="post-excerpt">
+        <h3 id="第一章">
+          <a href="#第一章" class="heading-link"><i class="fas fa-link"></i></a><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h3>
+      
+        <h4 id="概述">
+          <a href="#概述" class="heading-link"><i class="fas fa-link"></i></a><a href="#概述" class="headerlink" title="概述"></a>概述</h4>
+      <p>网络：这里指“三网”，即电信网络、有线电视网络和计算机网络。</p>
+<p>网络融合：随着技术的发展，电信网络和有线电视网络都逐渐融入了现代计算机网络的技术，这就产生了“网络融合”</p>
+<p>资源共享：计算机网络上有许多主机存储了大量有价值的电子文档，可供上网的用户自由读取或下载（无偿或有偿），这些资源好像就在用户身边一样。</p>
+
+        <h4 id="因特网">
+          <a href="#因特网" class="heading-link"><i class="fas fa-link"></i></a><a href="#因特网" class="headerlink" title="因特网"></a>因特网</h4>
+      <p>先认识网络，因特网，互联网这三个概念。</p>
+<p>网络：由若干结点(node)[插图]和连接这些结点的链路(link)组成。</p>
+<p>互联网：网络和网络还可以通过路由器互连起来，这样就构成了一个覆盖范围更大的网络，即互联网</p>
+<p>因特网：是世界上最大的互连网络（用户数以亿计，互连的网络数以百万计）。</p>
+<p><img src="/2022/04/13/computerNetwork1/1649727589146.png" alt="1649727589146"></p>
+<p>网络把许多计算机连接在一起，而因特网则把许多网络连接在一起。</p>
+<p>因特网就是世界上最大的计算机网络。</p>
+
+        <h4 id="因特网发展的三个阶段">
+          <a href="#因特网发展的三个阶段" class="heading-link"><i class="fas fa-link"></i></a><a href="#因特网发展的三个阶段" class="headerlink" title="因特网发展的三个阶段"></a>因特网发展的三个阶段</h4>
+      <p>1.第一阶段是从单个网络ARPANET向互联网发展的过程。</p>
+<p>​        1983年，TCP&#x2F;IP协议成为ARPANET上的标准协议，使得所有使用TCP&#x2F;IP协议的计算机都能利用互连网相互通信，因而人们就把1983年作为因特网的诞生时间。1990年，ARPANET正式宣布关闭，因为它的实验任务已经完成。</p>
+<p>internet和Internet的区别。</p>
+<p>​        internet（互联网或互连网）是一个通用名词，它泛指由多个计算机网络互连而成的网络</p>
+<p>​        Internet（因特网）则是一个专用名词，它指当前全球最大的、开放的、由众多网络相互连接而成的特定计算机网络，它采用TCP&#x2F;IP协议族作为通信的规则，且其前身是美国的ARPANET。</p>
+<p>2.第二阶段的特点是建成了三级结构的因特网。</p>
+<p>​       它是一个三级计算机网络，分为主干网、地区网和校园网（或企业网）。</p>
+<p>3.第三阶段的特点是逐渐形成了多层次 ISP 结构的因特网。</p>
+<p>​        ISP:因特网服务提供者ISP(Internet Service Provider)。中国电信、中国联通和中国移动就是我国最有名的ISP。</p>
+<p><img src="/2022/04/13/computerNetwork1/epub_655484_6.png" alt="epub_655484_6"></p>
+
+        <h4 id="因特网的组成">
+          <a href="#因特网的组成" class="heading-link"><i class="fas fa-link"></i></a><a href="#因特网的组成" class="headerlink" title="因特网的组成"></a>因特网的组成</h4>
+      <p>边缘部分：由所有连接在因特网上的主机组成。这部分是用户直接使用的，用来进行通信（传送数据、音频或视频）和资源共享。</p>
+<p>核心部分：由大量网络和连接这些网络的路由器组成。这部分是为边缘部分提供服务的（提供连通性和交换）。</p>
+<p><img src="/2022/04/13/computerNetwork1/epub_655484_12.png" alt="epub_655484_12"></p>
+
+        <h5 id="边缘部分">
+          <a href="#边缘部分" class="heading-link"><i class="fas fa-link"></i></a><a href="#边缘部分" class="headerlink" title="边缘部分"></a>边缘部分</h5>
+      <p>在网络边缘的端系统之间的通信方式通常可划分为两大类：客户-服务器方式（C&#x2F;S方式）和对等方式（P2P方式）</p>
+<p>客户是服务请求方，服务器是服务提供方。</p>
+<p>客户程序：(1) 被用户调用后运行，在通信时主动向远地服务器发起通信（请求服务）。因此，客户程序必须知道服务器程序的地址。(2) 不需要特殊的硬件和很复杂的操作系统。服务器程序：(1) 是一种专门用来提供某种服务的程序，可同时处理多个远地或本地客户的请求。(2) 系统启动后即自动调用并一直不断地运行着，被动地等待并接受来自各地的客户的通信请求。因此，服务器程序不需要知道客户程序的地址。(3) 一般需要有强大的硬件和高级的操作系统支持。客户与服务器的通信关系建立后，通信可以是双向的，客户和服务器都可发送和接收数据。</p>
+<p>对等连接方式从本质上看仍然是使用客户-服务器方式，只是对等连接中的每一个主机既是客户又同时是服务器。</p>
+
+        <h5 id="核心部分">
+          <a href="#核心部分" class="heading-link"><i class="fas fa-link"></i></a><a href="#核心部分" class="headerlink" title="核心部分"></a>核心部分</h5>
+      <p>​       在网络核心部分起特殊作用的是路由器（router），它是一种专用计算机（但不是主机）。路由器是实现分组交换（packet switching）的关键构件，其任务是转发收到的分组，这是网络核心部分最重要的功能。</p>
+<p>三种交换方式：</p>
+<p>电路交换：整个报文的比特流连续地从源点直达终点，好像在一个管道中传送。这种必须经过“建立连接（占用通信资源）→通话（一直占用通信资源）→释放连接（归还通信资源）”三个步骤的交换方式称为电路交换。电路交换的一个重要特点就是在通话的全部时间内，通话的两个用户始终占用端到端的通信资源。</p>
+<p>分组交换：单个分组（这只是整个报文的一部分）传送到相邻结点，存储下来后查找转发表，转发到下一个结点。</p>
+<p>​    报文：通常我们把要发送的整块数据称为一个报文</p>
+<p>​    分组：先把较长的报文划分成为一个个更小的等长数据段，例如，每个数据段为1024bit[插图]。在每一个数据段前面，加上一些必要的控制信息组成的首部(header)后，就构成了一个分组(packet)。分组又称为“包”，而分组的首部也可称为“包头”。</p>
+<p>报文交换：整个报文先传送到相邻结点，全部存储下来后查找转发表，转发到下一个结点。</p>
+
+        <h4 id="几种不同类别的网络">
+          <a href="#几种不同类别的网络" class="heading-link"><i class="fas fa-link"></i></a><a href="#几种不同类别的网络" class="headerlink" title="几种不同类别的网络"></a>几种不同类别的网络</h4>
+      <p>按网络的作用范围进行分类</p>
+<p>广域网</p>
+<p>城域网</p>
+<p>局域网</p>
+<p>个人区域网</p>
+<p>按网络的使用者进行分类</p>
+<p>公用网</p>
+<p>专用网</p>
+<p>用来把用户接入到因特网的网络</p>
+<p>接入网</p>
+
+        <h4 id="计算机网络的性能指标">
+          <a href="#计算机网络的性能指标" class="heading-link"><i class="fas fa-link"></i></a><a href="#计算机网络的性能指标" class="headerlink" title="计算机网络的性能指标"></a>计算机网络的性能指标</h4>
+      <p>速率：网络技术中的速率指的是连接在计算机网络上的主机在数字信道上传送数据的速率，它也称为数据率(data rate)或比特率(bit rate)。</p>
+<p>带宽：表示通信线路允许通过的信号频带范围就称为线路的带宽</p>
+<p>吞吐量：表示在单位时间内通过某个网络（或信道、接口）的数据量。</p>
+<p>时延：是指数据（一个报文或分组，甚至比特）从网络（或链路）的一端传送到另一端所需的时间</p>
+
+        <h4 id="计算机网络的非性能指标">
+          <a href="#计算机网络的非性能指标" class="heading-link"><i class="fas fa-link"></i></a><a href="#计算机网络的非性能指标" class="headerlink" title="计算机网络的非性能指标"></a>计算机网络的非性能指标</h4>
+      <p>费用：</p>
+<p>质量：</p>
+<p>标准化：</p>
+<p>可靠性：</p>
+<p>可扩展性和可升级性：</p>
+<p>易于管理和维护：</p>
+
+        <h4 id="计算机网络体系结构的形成">
+          <a href="#计算机网络体系结构的形成" class="heading-link"><i class="fas fa-link"></i></a><a href="#计算机网络体系结构的形成" class="headerlink" title="计算机网络体系结构的形成"></a>计算机网络体系结构的形成</h4>
+      <p>原因：为了解决不同产品使用不同的网络体系，是不同设备间无法相互连通，导致市场出现垄断现象。</p>
+<p>国际标准化组织ISO提出了（开放系统互连基本参考模型）OSI的标准，但是由于现实的问题一直停留在理论上，没有实际应用到实际中。得到广泛应用的是非国际标准的TCP&#x2F;IP。</p>
+
+        <h5 id="协议与划分层次">
+          <a href="#协议与划分层次" class="heading-link"><i class="fas fa-link"></i></a><a href="#协议与划分层次" class="headerlink" title="协议与划分层次"></a>协议与划分层次</h5>
+      <p>语法：即数据与控制信息的结构或格式；</p>
+<p>语义：即需要发出何种控制信息，完成何种动作以及做出何种响应；</p>
+<p>同步：即事件实现顺序的详细说明。</p>
+<p>分层的优点：</p>
+<p>(1) 各层之间是独立的</p>
+<p>(2) 灵活性好</p>
+<p>(3) 结构上可分割开</p>
+<p>(4) 易于实现和维护</p>
+<p>(5) 能促进标准化工作</p>
+<p>我们把计算机网络的各层及其协议的集合，称为网络的体系结构</p>
+
+        <h4 id="五层协议的体系结构">
+          <a href="#五层协议的体系结构" class="heading-link"><i class="fas fa-link"></i></a><a href="#五层协议的体系结构" class="headerlink" title="五层协议的体系结构"></a>五层协议的体系结构</h4>
+      <p>OSI的七层协议体系结构的概念清楚，理论也较完整，但它既复杂又不实用。目前使用最广泛的是TCP&#x2F;IP的体系结构，为了方便学习，我们采用折中的做法，采用只有五层的体系结构</p>
+<p><img src="/2022/04/13/computerNetwork1/epub_655484_37.png" alt="epub_655484_12"></p>
+<p>应用层：应用层是体系结构中的最高层。应用层的任务是通过应用进程间的交互来完成特定网络应用。</p>
+<p>运输层：运输层的任务就是负责向两个主机中进程之间的通信提供通用的数据传输服务。</p>
+<p>网络层：网络层负责为分组交换网上的不同主机提供通信服务。</p>
+<p>数据链路层：在两个相邻结点之间传送数据时，数据链路层将网络层交下来的IP数据报组装成帧（framing），在两个相邻结点间的链路上传送帧（frame）。每一帧包括数据和必要的控制信息（如同步信息、地址信息、差错控制等）。</p>
+<p>物理层：如双绞线、同轴电缆、光缆、无线信道等，</p>
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2022/04/13/elasticsearch_install/">elasticsearch安装(centos7)</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2022-04-12</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2022-06-08</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>安装elasticsearch的前提是先安装jdk，如何安装jdk可以翻看博主的jdk安装教程</p>
+<p>1.下载安装包</p>
+<p><span class="exturl"><a class="exturl__link" target="_blank" rel="noopener" href="https://www.elastic.co/cn/downloads/elasticsearch">https://www.elastic.co/cn/downloads/elasticsearch</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p>选择符合自己版本的elasticsearch,我的虚拟机版本是centos7,64位</p>
+<p><span class="exturl"><a class="exturl__link" target="_blank" rel="noopener" href="https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-8.2.2-linux-x86_64.tar.gz">https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-8.2.2-linux-x86_64.tar.gz</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p><img src="/2022/04/13/elasticsearch_install/elasticsearch_install%5C1654669838953.png" alt="1654669838953"></p>
+<p>2.上传并解压安装包</p>
+<figure class="highlight shell"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf elasticsearch-8.2.2-linux-x86_64.tar.gz</span><br></pre></td></tr></table></div></figure>
+
+<p>3.修改配置文件，进入elasticsearch-8.2.2&#x2F;config&#x2F;，主要关注elasticsearch.yml和jvm.options这两个配置文件</p>
+<p>打开jvm.options，调整内存大小，根据自己的虚拟机内存的实际情况去配置，大概为机子内存的一半</p>
+<p><img src="/2022/04/13/elasticsearch_install/elasticsearch_install%5C1654670443830.png" alt="1654670443830"></p>
+<p>打开elasticsearch.yml，配置主机ip和端口号，并在原来的基础上添加下面两行</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">discovery.seed_hosts: [&quot;127.0.0.1&quot;]</span><br><span class="line">cluster.initial_master_nodes: [&quot;node-1&quot;]</span><br></pre></td></tr></table></div></figure>
+
+<p><img src="/2022/04/13/elasticsearch_install/elasticsearch_install%5C1654671798044.png" alt="1654671798044"></p>
+<p>4.创建elasticsearch用户，并授权</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">groupadd es</span><br><span class="line"></span><br><span class="line">useradd es -g es -p es</span><br><span class="line"></span><br><span class="line">chown -R es:es elasticsearch-8.2.2</span><br></pre></td></tr></table></div></figure>
+
+
+
+<p>5.还要修改系统文件的配置，配置如下</p>
+<figure class="highlight shell"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">1.修改/etc/sysctl.conf</span><br><span class="line">文件最后添加如下内容</span><br><span class="line">vm.max_map_count=262144</span><br><span class="line">添加完成后运行如下命令</span><br><span class="line">sysctl -p</span><br><span class="line"></span><br><span class="line">2.修改/etc/security/limits.conf</span><br><span class="line">添加如下内容</span><br><span class="line">* hard nofile 65536</span><br><span class="line">* soft nofile 65536</span><br><span class="line">* soft nproc 2048</span><br><span class="line">* hard nproc 4096</span><br><span class="line"></span><br><span class="line">3.修改/etc/security/limits.d/90-nproc.conf</span><br><span class="line">修改如下内容：</span><br><span class="line">* soft nproc 1024</span><br><span class="line">修改为</span><br><span class="line">* soft nproc 4096</span><br><span class="line">————————————————</span><br></pre></td></tr></table></div></figure>
+
+<p>6.启动elasticsearch，到bin目录，启动指令如下：</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./elasticsearch</span><br><span class="line">./elasticsearch -d #后台启动</span><br></pre></td></tr></table></div></figure>
+
+<p>打开浏览器输入ip+端口，如下说明成功了</p>
+<p><img src="/2022/04/13/elasticsearch_install/elasticsearch_install%5C1654680144517.png" alt="1654680144517"></p>
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2022/04/12/mysql-install/">MySQL安装（linux源码包安装）</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2022-04-11</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2022-04-12</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>安装步骤：</p>
+<p>1.解压、创建相关目录，环境检查</p>
+<p>2.创建用户用户组，授权</p>
+<p>3.编译</p>
+<p>4.修改配置文件my.cnf</p>
+<p>5.设置开机启动，配置环境变量等</p>
+
+        <h4 id="解压、创建相关目录">
+          <a href="#解压、创建相关目录" class="heading-link"><i class="fas fa-link"></i></a><a href="#解压、创建相关目录" class="headerlink" title="解压、创建相关目录"></a>解压、创建相关目录</h4>
+      <p>1.去官网下载相关的安装包：<span class="exturl"><a class="exturl__link" target="_blank" rel="noopener" href="https://dev.mysql.com/downloads/mysql/">https://dev.mysql.com/downloads/mysql/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p>2.解压</p>
+<figure class="highlight shell"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf mysql-5.7.13-linux-glibc2.5-x86_64.tar.gz</span><br></pre></td></tr></table></div></figure>
+
+<p>3.将解压的文件移动至&#x2F;usr&#x2F;local&#x2F;mysql</p>
+<figure class="highlight shell"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv mysql-5.7.13-linux-glibc2.12-x86_64 /usr/local/mysql</span><br></pre></td></tr></table></div></figure>
+
+<p>4.在&#x2F;usr&#x2F;local&#x2F;mysql创建data目录</p>
+<figure class="highlight shell"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/mysql</span><br><span class="line">mkdir data</span><br></pre></td></tr></table></div></figure>
+
+<p>5.查看是否有旧的数据库</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa | grep mariadb</span><br><span class="line">rpm -e 包名 --nodeps</span><br></pre></td></tr></table></div></figure>
+
+
+
+
+        <h4 id="创建用户用户组，授权">
+          <a href="#创建用户用户组，授权" class="heading-link"><i class="fas fa-link"></i></a><a href="#创建用户用户组，授权" class="headerlink" title="创建用户用户组，授权"></a>创建用户用户组，授权</h4>
+      <p>1.创建用户组</p>
+<figure class="highlight shell"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">groupadd mysql</span><br></pre></td></tr></table></div></figure>
+
+<p>2.添加用户，指定所属组</p>
+<figure class="highlight shell"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">useradd -r -g mysql mysql</span><br></pre></td></tr></table></div></figure>
+
+<p>3.授权</p>
+<figure class="highlight shell"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chown –R mysql:mysql /usr/local/mysql</span><br></pre></td></tr></table></div></figure>
+
+
+        <h4 id="编译">
+          <a href="#编译" class="heading-link"><i class="fas fa-link"></i></a><a href="#编译" class="headerlink" title="编译"></a>编译</h4>
+      <p>注意编译完成后记录末尾的密码，等下登录用到！</p>
+<figure class="highlight shell"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./mysqld --user=mysql --initialize --basedir=/usr/local/mysql --datadir=/usr/local/mysql/data</span><br></pre></td></tr></table></div></figure>
+
+<p><img src="/2022/04/12/mysql-install/1.png" alt="1"></p>
+
+        <h4 id="修改配置文件my-cnf">
+          <a href="#修改配置文件my-cnf" class="heading-link"><i class="fas fa-link"></i></a><a href="#修改配置文件my-cnf" class="headerlink" title="修改配置文件my.cnf"></a>修改配置文件my.cnf</h4>
+      <p>编辑&#x2F;etc&#x2F;my.cnf，添加如下配置。</p>
+<figure class="highlight shell"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/my.cnf</span><br><span class="line">[mysqld]</span><br><span class="line">datadir=/usr/local/mysql/data</span><br><span class="line">socket=/var/lib/mysql/mysql.sock</span><br><span class="line">basedir=/usr/local/mysql</span><br></pre></td></tr></table></div></figure>
+
+
+        <h4 id="设置开机启动，配置环境变量等">
+          <a href="#设置开机启动，配置环境变量等" class="heading-link"><i class="fas fa-link"></i></a><a href="#设置开机启动，配置环境变量等" class="headerlink" title="设置开机启动，配置环境变量等"></a>设置开机启动，配置环境变量等</h4>
+      <p>1.进入&#x2F;usr&#x2F;local&#x2F;mysql，做如下操作设置开机自启动</p>
+<figure class="highlight shell"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cp support-files/mysql.server /etc/init.d/mysql</span><br><span class="line">chmod +x /etc/init.d/mysql  #授执行权限</span><br><span class="line">chkconfig --add mysql #添加自动启动</span><br><span class="line">chkconfig --list #查看是否添加成功</span><br></pre></td></tr></table></div></figure>
+
+<p>2.配置环境变量</p>
+<figure class="highlight shell"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export PATH=$PATH:/usr/local/mysql/bin:/usr/local/mysql/lib</span><br><span class="line">source /etc/profile #重新加载文件</span><br><span class="line">systemctl restart mysql #启动mysql数据库</span><br><span class="line">set password for root@localhost = password(&#x27;123456&#x27;); #登录mysql，修改密码</span><br></pre></td></tr></table></div></figure>
+
+<p><img src="/2022/04/12/mysql-install/2.png" alt="2"></p>
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2022/04/08/hexo-images/">hexo图片不显示的问题</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2022-04-07</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2022-04-24</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>问题：发现hexo上传图片的时候，界面无法加载图片</p>
+<p>解决思路：</p>
+<p>1.修改博客的根目录配置文件_config.yml</p>
+<p>2.安装hexo-asset-image插件</p>
+<p>3.新建文章，将图片复制到对应生成的文件夹中，文章中引入图片的相对路径</p>
+<p>4.重新加载hexo，重启项目</p>
+
+        <h4 id="修改-config-yml配置文件">
+          <a href="#修改-config-yml配置文件" class="heading-link"><i class="fas fa-link"></i></a><a href="#修改-config-yml配置文件" class="headerlink" title="修改_config.yml配置文件"></a>修改_config.yml配置文件</h4>
+      <p>将post_asset_folder改为true</p>
+<p><img src="/2022/04/08/hexo-images/1649325088239.png" alt="1649325088239"></p>
+
+        <h4 id="安装插件">
+          <a href="#安装插件" class="heading-link"><i class="fas fa-link"></i></a><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h4>
+      <figure class="highlight shell"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install https://github.com/CodeFalling/hexo-asset-image --save</span><br></pre></td></tr></table></div></figure>
+
+
+        <h4 id="新建文章">
+          <a href="#新建文章" class="heading-link"><i class="fas fa-link"></i></a><a href="#新建文章" class="headerlink" title="新建文章"></a>新建文章</h4>
+      <figure class="highlight shell"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">hexo new xxxx</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="language-bash">将图片放入到_post文件下生成的文件夹</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="language-bash">图片路径格如下</span></span><br><span class="line">![图片名](./xxxx/图片名.png)</span><br></pre></td></tr></table></div></figure>
+
+
+        <h4 id="重新加载项目，启动项目">
+          <a href="#重新加载项目，启动项目" class="heading-link"><i class="fas fa-link"></i></a><a href="#重新加载项目，启动项目" class="headerlink" title="重新加载项目，启动项目"></a>重新加载项目，启动项目</h4>
+      <figure class="highlight shell"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g #重新加载</span><br><span class="line">hexo s #启动项目</span><br></pre></td></tr></table></div></figure>
+
+
+
+<p>需要注意的一点是，文件夹的不要使用中文命名</p>
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2022/04/07/hexo-init/">win+hexo+github的初始化-搭建</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2022-04-06</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2022-04-10</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>安装搭建步骤：</p>
+<p>1.下载安装node.js，github</p>
+<p>2.安装，初始化hexo</p>
+<p>3.github相关配置</p>
+<p>4.hexo发布到github</p>
+
+        <h4 id="下载安装node-js，github">
+          <a href="#下载安装node-js，github" class="heading-link"><i class="fas fa-link"></i></a><a href="#下载安装node-js，github" class="headerlink" title="下载安装node.js，github"></a>下载安装node.js，github</h4>
+      <p>1.1下载安装node.js，我这里演示的是windows环境下，其他系统的伙伴可以下载相应的版本，安装都差不多。</p>
+<figure class="highlight shell"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://nodejs.org/dist/v16.14.0/node-v16.14.0-x64.msi</span><br></pre></td></tr></table></div></figure>
+
+<p>1.2下载安装github</p>
+<figure class="highlight shell"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/git-for-windows/git/releases/download/v2.35.1.windows.2/Git-2.35.1.2-64-bit.exe</span><br></pre></td></tr></table></div></figure>
+
+<p>1.3检查是否安装成功，打开电脑cmd窗口,如下图</p>
+<figure class="highlight shell"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br><span class="line">npm -v</span><br><span class="line">git --version</span><br></pre></td></tr></table></div></figure>
+
+<p><img src="/2022/04/07/hexo-init/1649399456021.png" alt="1649399456021"></p>
+
+        <h4 id="安装，初始化hexo">
+          <a href="#安装，初始化hexo" class="heading-link"><i class="fas fa-link"></i></a><a href="#安装，初始化hexo" class="headerlink" title="安装，初始化hexo"></a>安装，初始化hexo</h4>
+      <p>2.1安装hexo</p>
+<figure class="highlight shell"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="language-bash">安装hexo</span></span><br><span class="line">npm install hexo-cli -g</span><br><span class="line"><span class="meta">#</span><span class="language-bash">检查hexo</span></span><br><span class="line">hexo -v</span><br></pre></td></tr></table></div></figure>
+
+<p><img src="/2022/04/07/hexo-init/1649400337591.png" alt="1649400337591"></p>
+<p>2.2初始化hexo项目</p>
+<figure class="highlight shell"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo init #初始化项目</span><br><span class="line">hexo s	  #启动项目</span><br></pre></td></tr></table></div></figure>
+
+<p><img src="/2022/04/07/hexo-init/1649401460373.png" alt="1649401460373"></p>
+<p>如上图，可以通过本地浏览器访问<a href="http://localhost:4000，按ctrl+c退出">http://localhost:4000，按ctrl+c退出</a></p>
+<p><img src="/2022/04/07/hexo-init/123456.jpeg"></p>
+
+        <h4 id="github相关配置">
+          <a href="#github相关配置" class="heading-link"><i class="fas fa-link"></i></a><a href="#github相关配置" class="headerlink" title="github相关配置"></a>github相关配置</h4>
+      <p>如果还没有github账号的先注册，</p>
+<p>3.1创建github仓库</p>
+<p>仓库名一定是你的用户名+github.io,然后点击确定即可</p>
+<p><img src="/2022/04/07/hexo-init/1649403419766.png" alt="1649403419766"></p>
+<p>3.2设置ssh-keys认证</p>
+<p>右键选择GIT bash打开命令窗口，输入一下命令生成密钥</p>
+<figure class="highlight shell"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;你的邮箱地址&quot;</span><br></pre></td></tr></table></div></figure>
+
+<p><img src="/2022/04/07/hexo-init/1649404089689.png" alt="1649404089689"></p>
+<p>密钥生成路径在c盘的adminstrator下有个.ssh，id_rsa就是密钥文件</p>
+<p>将公钥文件id_rsa.pub的内容复制到github的setting-ssh and GPG keys,点击new ssh key，添加后如下图</p>
+<p><img src="/2022/04/07/hexo-init/1649405201216.png" alt="1649405201216"></p>
+<p>3.3测试ssh绑定是否成功，如下提示表示成功</p>
+<figure class="highlight shell"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></div></figure>
+
+<p><img src="/2022/04/07/hexo-init/1649405464377.png" alt="1649405464377"></p>
+
+        <h4 id="线上发布博客">
+          <a href="#线上发布博客" class="heading-link"><i class="fas fa-link"></i></a><a href="#线上发布博客" class="headerlink" title="线上发布博客"></a>线上发布博客</h4>
+      <p>4.1在hexo根目录打开git命令窗口，先设置git的邮箱和用户名</p>
+<figure class="highlight shell"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.email &quot;xxx@example.com&quot;</span><br><span class="line">git config --global user.name &quot;xxx&quot;</span><br></pre></td></tr></table></div></figure>
+
+<p>4.2打开更目录_config.yml文件，注释掉原来的deploy配置，</p>
+<figure class="highlight shell"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line"> type: git</span><br><span class="line"><span class="meta"> #</span><span class="language-bash">这个为你的地址,github仓库上可以找到</span></span><br><span class="line"> repository: https://github.com/gechangjia/gechangjia.github.io.git</span><br><span class="line"> branch: main</span><br></pre></td></tr></table></div></figure>
+
+<p>4.3安装hexo-deployer-git</p>
+<figure class="highlight shell"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></div></figure>
+
+<p>4.4生成静态文件和部署，到这一步就完成了</p>
+<figure class="highlight shell"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></div></figure>
+
+<p>访问地址：https:&#x2F;&#x2F;+你的仓库名</p>
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2022/04/05/keepalived%E5%BA%94%E7%94%A8/">keepalived应用</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2022-04-04</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2022-04-07</span></span></div></header><div class="post-body"><div class="post-excerpt">
+        <h4 id="keepalived介绍">
+          <a href="#keepalived介绍" class="heading-link"><i class="fas fa-link"></i></a><a href="#keepalived介绍" class="headerlink" title="keepalived介绍"></a>keepalived介绍</h4>
+      <p>Keepalived软件起初是专为LVS负载均衡软件设计的，用来管理并监控LVS集群系统中各个服务节点的状态，后来又加入了可以实现高可用的VRRP功能。因此，Keepalived除了能够管理LVS软件外，还可以作为其他服务（例如：Nginx、Haproxy、MySQL等）的高可用解决方案软件。</p>
+
+        <h4 id="keepalived的功能">
+          <a href="#keepalived的功能" class="heading-link"><i class="fas fa-link"></i></a><a href="#keepalived的功能" class="headerlink" title="keepalived的功能"></a>keepalived的功能</h4>
+      <p>1.实现对lvs集群的高可用和后台节点的服务状态的监控。</p>
+<p>2.作为网络服务的高可用，如MySQL,Nginx等。</p>
+<p>本片文章主要讲的是软件服务故障切换的高可用。</p>
+
+        <h4 id="keepalived工作原理">
+          <a href="#keepalived工作原理" class="heading-link"><i class="fas fa-link"></i></a><a href="#keepalived工作原理" class="headerlink" title="keepalived工作原理"></a>keepalived工作原理</h4>
+      <p>Keepalived高可用服务对之间的故障切换转移，是通过VRRP（Virtual Router Redundancy Protocol，虚拟路由器冗余协议）来实现的。</p>
+<p>在Keepalived服务正常工作时，主Master节点会不断地向备节点发送数据包，用以告诉备Backup节点自己还活着，当主Master节点发生故障时，就无法发送数据包，备节点也就因此无法继续检测到来自主Master节点的心跳了，于是调用自身的接管程序，接管主Master节点的IP资源及服务。而当主Master节点恢复时，备Backup节点又会释放主节点故障时自身接管的IP资源及服务，恢复到原来的备用角色。</p>
+
+        <h4 id="keepalived-Nginx高可用实战">
+          <a href="#keepalived-Nginx高可用实战" class="heading-link"><i class="fas fa-link"></i></a><a href="#keepalived-Nginx高可用实战" class="headerlink" title="keepalived+Nginx高可用实战"></a>keepalived+Nginx高可用实战</h4>
+      <p>步骤：</p>
+<p>1.准备两台主机</p>
+<p>ip:192.168.147.7(主)</p>
+<p>ip:192.168.147.8(备)</p>
+<p>2.安装Nginx（安装相对简单不做详述）</p>
+<p>3.安装keepalied</p>
+<p>4.配置keepalived配置文件实现高可用</p>
+<p>5.模拟故障转换</p>
+
+        <h4 id="keepalived安装">
+          <a href="#keepalived安装" class="heading-link"><i class="fas fa-link"></i></a><a href="#keepalived安装" class="headerlink" title="keepalived安装"></a>keepalived安装</h4>
+      <p>卸载旧的安装包</p>
+<figure class="highlight shell"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost man8]# yum remove keepalived</span><br></pre></td></tr></table></div></figure>
+
+<p>去官网下载keepalived的安装包<span class="exturl"><a class="exturl__link" target="_blank" rel="noopener" href="https://www.keepalived.org/download.html">https://www.keepalived.org/download.html</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p>开始安装，注意主从服务器都要安装</p>
+<figure class="highlight shell"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost opt]# tar zxvf keepalived-2.2.0.tar.gz            #解压</span><br><span class="line">[root@localhost opt]# cd keepalived-2.2.0                         #进入解压文件</span><br><span class="line">[root@localhost keepalived-2.2.0]# ./configure --sysconf=/etc     #编译</span><br><span class="line">[root@localhost keepalived-2.2.0]# make &amp;&amp; make install           #安装</span><br><span class="line">[root@localhost keepalived-2.2.0]# systemctl start keepalived     #启动</span><br></pre></td></tr></table></div></figure>
+
+
+        <h4 id="keepalived配置">
+          <a href="#keepalived配置" class="heading-link"><i class="fas fa-link"></i></a><a href="#keepalived配置" class="headerlink" title="keepalived配置"></a>keepalived配置</h4>
+      <p>一般配置文件在&#x2F;etc&#x2F;keepalived中</p>
+<figure class="highlight shell"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="language-bash">主配置文件</span></span><br><span class="line">! Configuration File for keepalived</span><br><span class="line"> </span><br><span class="line">  global_defs &#123;</span><br><span class="line">     router_id lab1             #标识信息，一个名字而已</span><br><span class="line">  &#125;  </span><br><span class="line">     </span><br><span class="line">  vrrp_instance VI_1 &#123;</span><br><span class="line">      state MASTER		        #角色是master</span><br><span class="line">      interface ens33           #vip绑定端口</span><br><span class="line">      virtual_router_id 51      #让master和backup在同一个虚拟路由中，id号必须一样</span><br><span class="line">      priority 95               #优先级，谁高，谁就是master</span><br><span class="line">      advert_int 1              #心跳间隔时间</span><br><span class="line">      authentication &#123;</span><br><span class="line">          auth_type PASS        #认证</span><br><span class="line">          auth_pass 1111        #密码</span><br><span class="line">      &#125;</span><br><span class="line">      virtual_ipaddress &#123;</span><br><span class="line">          192.168.147.16        #虚拟ip</span><br><span class="line">      &#125;   </span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line"><span class="meta"> </span></span><br><span class="line"><span class="meta"> #</span><span class="language-bash">从的配置文件</span></span><br><span class="line"> ! Configuration File for keepalived</span><br><span class="line"> </span><br><span class="line">  global_defs &#123;</span><br><span class="line">     router_id lab2             #标识信息，一个名字而已</span><br><span class="line">  &#125;  </span><br><span class="line">     </span><br><span class="line">  vrrp_instance VI_1 &#123;</span><br><span class="line">      state BACKUP		        #角色是backup</span><br><span class="line">      interface ens33           #vip绑定端口</span><br><span class="line">      virtual_router_id 51      #让master和backup在同一个虚拟路由中，id号必须一样</span><br><span class="line">      priority 91               #优先级，谁高，谁就是master</span><br><span class="line">      advert_int 1              #心跳间隔时间</span><br><span class="line">      authentication &#123;</span><br><span class="line">          auth_type PASS        #认证</span><br><span class="line">          auth_pass 1111        #密码</span><br><span class="line">      &#125;</span><br><span class="line">      virtual_ipaddress &#123;</span><br><span class="line">          192.168.147.16        #虚拟ip</span><br><span class="line">      &#125;   </span><br><span class="line">  &#125;</span><br></pre></td></tr></table></div></figure>
+
+
+        <h4 id="故障切换">
+          <a href="#故障切换" class="heading-link"><i class="fas fa-link"></i></a><a href="#故障切换" class="headerlink" title="故障切换"></a>故障切换</h4>
+      <p>1.分别进入7和8的页面路径&#x2F;nginx&#x2F;html，修改默认访问页面，用来区分访问的是那个服务器的nginx.</p>
+<p><img src="/2022/04/05/keepalived%E5%BA%94%E7%94%A8/1649321321443.png" alt="1649321321443"></p>
+<p><img src="/2022/04/05/keepalived%E5%BA%94%E7%94%A8/1649321805700.png" alt="1649321805700"></p>
+<p>2.手动关闭主节点的keepalived模拟故障，可以发现用vip访问的时候是从节点的界面</p>
+<p><img src="/2022/04/05/keepalived%E5%BA%94%E7%94%A8/1649322111992.png" alt="1649322111992"></p>
+
+        <h4 id="健康检查脚本">
+          <a href="#健康检查脚本" class="heading-link"><i class="fas fa-link"></i></a><a href="#健康检查脚本" class="headerlink" title="健康检查脚本"></a>健康检查脚本</h4>
+      <p>目的：检测nginx挂掉时，尝试重新启动，如果无法启动则停掉keepalived，实现虚拟ip转移</p>
+<p>脚本如下:</p>
+<figure class="highlight shell"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="language-bash">!/bin/sh</span></span><br><span class="line"><span class="meta">#</span><span class="language-bash">Author:hw</span>                  </span><br><span class="line">nginxpid=$(ps -C nginx --no-header|wc -l)</span><br><span class="line">if [ $nginxpid -eq 0 ]</span><br><span class="line">        then</span><br><span class="line">         /usr/local/nginx2/sbin/nginx</span><br><span class="line">         echo &quot;finish&quot; &gt; /opt/nginx.log</span><br><span class="line">         sleep 3</span><br><span class="line">         nginxpid=$(ps -C nginx --no-header|wc -l)</span><br><span class="line">         if [ $nginxpid -eq 0 ]</span><br><span class="line">         then</span><br><span class="line">          systemctl stop keepalived</span><br><span class="line">         fi</span><br><span class="line">fi</span><br></pre></td></tr></table></div></figure>
+
+<p>在keepalived的配置如下：</p>
+<figure class="highlight shell"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">! Configuration File for keepalived</span><br><span class="line">global_defs &#123;</span><br><span class="line">     script_user root</span><br><span class="line">     enable_script_security</span><br><span class="line">     router_id lab1             #标识信息，一个名字而已</span><br><span class="line">  &#125;</span><br><span class="line">vrrp_script check &#123;</span><br><span class="line">      script &quot;/opt/nginx.sh&quot;</span><br><span class="line">      interval 2</span><br><span class="line">&#125;</span><br><span class="line">  vrrp_instance VI_1 &#123;</span><br><span class="line">      state MASTER                      #角色是master</span><br><span class="line">      interface ens33           #vip绑定端口</span><br><span class="line">      virtual_router_id 51      #让master和backup在同一个虚拟路由中，id号必须一样</span><br><span class="line">      priority 95               #优先级，谁高，谁就是master</span><br><span class="line">      advert_int 1              #心跳间隔时间</span><br><span class="line">      authentication &#123;</span><br><span class="line">          auth_type PASS        #认证</span><br><span class="line">          auth_pass 1111        #密码</span><br><span class="line">      &#125;</span><br><span class="line">      virtual_ipaddress &#123;</span><br><span class="line">          192.168.147.16        #虚拟ip</span><br><span class="line">      &#125;</span><br><span class="line">      track_script &#123;</span><br><span class="line">      check</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></div></figure>
+
+</div></div></article></section><nav class="paginator"><div class="paginator-inner"><a class="extend prev" rel="prev" href="/"><i class="fas fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fas fa-angle-right"></i></a></div></nav></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><section class="sidebar-toc hide"></section><!-- ov = overview--><section class="sidebar-ov"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/stun-logo.svg" alt="avatar"></div><p class="sidebar-ov-author__text">加油！每天进步一点</p></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">22</div><div class="sidebar-ov-state-item__name">文章</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--tags" href="/tags/"><div class="sidebar-ov-state-item__count">14</div><div class="sidebar-ov-state-item__name">标签</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="知识共享许可协议" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2022</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>gechangjia</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="/js/utils.js?v=2.6.2"></script><script src="/js/stun-boot.js?v=2.6.2"></script><script src="/js/scroll.js?v=2.6.2"></script><script src="/js/header.js?v=2.6.2"></script><script src="/js/sidebar.js?v=2.6.2"></script></body></html>
